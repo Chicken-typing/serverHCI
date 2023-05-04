@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 import express from "express";
-const products = express.Router();
-
-export default products;
+import ProductController from "../../controllers/ProductController";
+const router = express.Router();
+router.get('/',ProductController.getAllProducts)
+module.exports= router;

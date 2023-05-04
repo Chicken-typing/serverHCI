@@ -1,12 +1,12 @@
 import mongoose from "mongoose";
 
 const deliveryInfoSchema = new mongoose.Schema({
-  receiverName: { type: String, required: true },
-  address: { type: String, required: true },
-  city: { type: String, required: true },
-  country: { type: String, required: true },
-  postalCode: { type: String, required: true },
-  receiverPhone: { type: String, required: true },
+  receiverName: { type: String},
+  address: { type: String },
+  city: { type: String },
+  country: { type: String},
+  postalCode: { type: String},
+  receiverPhone: { type: String},
 });
 const userSchema = new mongoose.Schema(
   {
@@ -17,8 +17,8 @@ const userSchema = new mongoose.Schema(
     isActive: { type: Boolean, required: true },
     role: { type: String, required: true },
     avatar: { type: String },
-    deliveryInfo: [deliveryInfoSchema],
-    defaultDelivery:{type: Number, required:true }
+    defaultDelivery:{type: Number, required:true, default:0 },
+    deliveryInfo: [deliveryInfoSchema]
   },
   {
     timestamps: true,

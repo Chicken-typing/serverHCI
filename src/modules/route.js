@@ -1,7 +1,10 @@
 import express from "express";
-const route = express.Router()
-route.get('/', (req, res) => {
-    res.send(" The api of Life Sport website.");
-})
-route.use("/users");
-export default route;
+const users = require('./user')
+const products = require('./product')
+const route = (app) => {
+    const router = express.Router()
+    app.use('/apiv2',router)
+    router.use('/users', users)
+    router.use('/products',products)
+}
+export default route
