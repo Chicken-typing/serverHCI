@@ -1,6 +1,6 @@
 import express from "express";
-const users = require('./user')
-const products = require('./product')
+import users from "./user/index.js"
+import products from './product/index.js'
 const route = (app) => {
     const router = express.Router()
     app.use('/apiv2',router)

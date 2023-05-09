@@ -1,23 +1,23 @@
 import mongoose from "mongoose";
 import express from "express";
-import { isAdmin, isAuthenticated, isMasterAdmin } from "../../validation";
+import { isAdmin, isAuthenticated, isMasterAdmin } from "../../validation/index.js";
 import expressAsyncHandler from "express-async-handler";
-import UserController from "../../controllers/UserController";
-const router = express.Router()
-router.post("/create-new-account", expressAsyncHandler(UserController.add));
-router.post(
+import UserController from "../../controllers/UserController.js";
+const users = express.Router()
+users.post("/create-new-account", expressAsyncHandler(UserController.add));
+users.post(
   "/add-new-account",
   isAuthenticated,
   isMasterAdmin,
   expressAsyncHandler(UserController.add)
 );
-router.get(
+users.get(
   "/",
   isAuthenticated,
   isAdmin,
   expressAsyncHandler(UserController.getAll)
 );
-router.delete("/:id", isAuthenticated, isAdmin, expressAsyncHandler(UserController.delete));
-router.put("/:id/profile", isAuthenticated, expressAsyncHandler(UserController.modify));
-router.put("/:id", isAuthenticated,isAdmin, expressAsyncHandler(UserController.access));
-module.exports= router
+users.delete("/:id", isAuthenticated, isAdmin, expressAsyncHandler(UserController.delete));
+users.put("/:id/profile", isAuthenticated, expressAsyncHandler(UserController.modify));
+users.put("/:id", isAuthenticated,isAdmin, expressAsyncHandler(UserController.access));
+export default users

@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-
+import moment from "moment"
 const deliveryInfoSchema = new mongoose.Schema({
   receiverName: { type: String},
   address: { type: String },
@@ -14,11 +14,21 @@ const userSchema = new mongoose.Schema(
     password: { type: String, required: true },
     username: { type: String, required: true },
     phone: { type: String, required: true },
-    isActive: { type: Boolean, required: true },
+    active: {
+      isAvailable: {
+        type: Boolean,
+        required: true,
+        default: true,
+      },
+      updateTime: {
+        type: Date,
+        default: moment().format(),
+      },
+    },
     role: { type: String, required: true },
     avatar: { type: String },
-    defaultDelivery:{type: Number, required:true, default:0 },
-    deliveryInfo: [deliveryInfoSchema]
+    defaultDelivery: { type: Number, required: true, default: 0 },
+    deliveryInfo: [deliveryInfoSchema],
   },
   {
     timestamps: true,
