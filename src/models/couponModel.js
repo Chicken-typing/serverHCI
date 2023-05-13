@@ -8,5 +8,5 @@ const couponSchema = new mongoose.Schema({
     description:{type:String, required: true}
 
 })
-const Counpon = mongoose.model('Coupon', couponSchema)
-export default  Counpon;
+const Coupon = mongoose.model('Coupon', couponSchema)
+export default  Coupon;
