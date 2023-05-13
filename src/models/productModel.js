@@ -30,7 +30,7 @@ const productSchema = new mongoose.Schema(
     countInStock:{type: Number, required:true},
     reviews: [reviewSchema],
     numReviews: { type: Number },
-    avgRate:{type:Number}
+    avgRate:{type:Number, default: 0}
   },
   {
     timestamps: true,
@@ -38,4 +38,4 @@ const productSchema = new mongoose.Schema(
 );
 
 const Product = mongoose.model('Product', productSchema);
-export default  Product;
+export default Product;

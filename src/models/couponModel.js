@@ -4,9 +4,9 @@ const couponSchema = new mongoose.Schema({
     proportion: { type: Number, required: true },
     startDate: { type: Date, required: true },
     endDate: { type: Date, required: true },
-    condition: { type: Number, required: true },
+    condition: { type: Number, required: true },//price more than landmark
     description:{type:String, required: true}
 
 })
-const Counpon = mongoose.model('Coupon', couponSchema)
-export default  Counpon;
+const Coupon = mongoose.model('Coupon', couponSchema)
+export default  Coupon;

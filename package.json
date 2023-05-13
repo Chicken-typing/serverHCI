@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "lint": "eslint src/**/*.js",
-    "start": "npm run lint && nodemon src/server.js",
+    "start": "nodemon src/server.js",
     "test": "ava"
   },
   "author": "",
@@ -20,6 +20,7 @@
     "express-async-handler": "^1.2.0",
     "jsonwebtoken": "^9.0.0",
     "minio": "^7.0.33",
+    "moment": "^2.29.4",
     "mongoose": "^7.0.3",
     "nodemon": "^2.0.22",
     "streamifier": "^0.1.1",
